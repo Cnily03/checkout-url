@@ -1,0 +1,53 @@
+name: 'Checkout'
+description: 'Checkout a Git repository at a particular version'
+
+inputs:
+  repository:
+    description: 'Repository name with owner, or the URL.'
+    required: false
+    default: ${{ github.repository }}
+  fetch-depth:
+    description: 'Number of commits to fetch. 0 indicates all history for all branches and tags.'
+    required: false
+    default: '1'
+  branch:
+    description: 'Branch name.'
+    required: false
+    default: ''
+  path:
+    description: 'The repository path to clone to.'
+    required: false
+    default: ''
+  token:
+    description: >
+      Personal access token (PAT) used to fetch the repository. [See here](https://help.github.com/en/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets).
+    required: false
+    default: ${{ github.token }}
+  set-user:
+    description: 'Set the user.name and user.email in the checked-out repository.'
+    required: false
+    default: ''
+  cwd:
+    description: 'The working directory to run commands in.'
+    required: false
+    default: ''
+  auto-create-cwd:
+    description: 'Automatically create the working directory if it does not exist.'
+    required: false
+    default: 'false'
+
+outputs:
+  repository_path:
+    description: 'The path of the repository that was checked out.'
+  repository_name:
+    description: 'The name of the repository that was checked out.'
+  ref:
+    description: 'The reference fetched.'
+  sha:
+    description: 'The commit SHA that was checked out.'
+  branch:
+    description: 'The branch that was checked out.'
+
+runs:
+  using: 'node20'
+  main: 'dist/index.js'

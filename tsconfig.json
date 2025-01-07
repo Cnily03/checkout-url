@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "commonjs",
+    "lib": [
+      "es6"
+    ],
+    "outDir": "dist",
+    "rootDir": "src",
+    "newLine": "lf",
+    "declaration": true,
+    "strict": true,
+    "noImplicitAny": false,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "exclude": [
+    "node_modules/**/*",
+    "**/*.d.ts",
+    "*.cjs"
+  ],
+}
